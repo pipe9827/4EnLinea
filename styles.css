@@ -39,3 +39,29 @@ button {
 button:hover {
     background-color: #005f73;
 }
+.falling {
+    animation: fall 0.3s ease-in;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.bounce {
+    animation: bounce 0.3s ease-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.winning-cell {
+    animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+    from { background-color: yellow; }
+    to { background-color: gold; }
+}
