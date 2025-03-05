@@ -1,0 +1,28 @@
+name: Deploy a GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Se ejecutará cuando hagas push en main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚀 Clonar repositorio
+        uses: actions/checkout@v4
+
+
+      - name: 🚀 Subir archivos a `gh-pages`
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: .
+
+      - name: 📤 Desplegar en GitHub Pages
+        uses: actions/deploy-pages@v2
+
