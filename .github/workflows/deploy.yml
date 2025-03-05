@@ -16,6 +16,18 @@ jobs:
     steps:
       - name: 🚀 Clonar repositorio
         uses: actions/checkout@v4
+      
+      - name: 📦 Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # Usa la versión que necesites
+
+      - name: 📦 Instalar dependencias
+        run: npm install
+
+      - name: 🏗️ Compilar TypeScript
+        run: npm run build  # Asegúrate de que este comando genere la carpeta "dist"
+
 
       - name: 🚀 Configurar GitHub Pages
         uses: actions/configure-pages@v4
