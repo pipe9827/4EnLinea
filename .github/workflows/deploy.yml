@@ -27,10 +27,13 @@ jobs:
           node-version: 18  # Usa la versión que necesites
 
       - name: 📦 Instalar dependencias
-        run: npm install
+        run: npm ci
 
       - name: 🏗️ Compilar TypeScript
         run: npm run build  # Asegúrate de que este comando genere la carpeta "dist"
+
+      - name: 📂 Verificar archivos generados
+        run: ls -l dist/
 
       - name: 🚀 Configurar GitHub Pages
         uses: actions/configure-pages@v4
