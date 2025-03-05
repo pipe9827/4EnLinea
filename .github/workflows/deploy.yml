@@ -23,7 +23,7 @@ jobs:
       - name: 🚀 Subir archivos a `gh-pages`
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "./dist"  # Asegúrate de que este sea el directorio correcto
+          path: .  # Asegúrate de que este sea el directorio correcto
 
       - name: 📤 Desplegar en GitHub Pages
         uses: actions/deploy-pages@v3
