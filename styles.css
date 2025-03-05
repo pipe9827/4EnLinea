@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(7, 60px); /* Asegura 7 columnas */
+    grid-template-rows: repeat(6, 60px);    /* Asegura 6 filas */
+    grid-gap: 5px;
+    margin: 20px auto;
+    width: max-content;
+    background-color: #0044cc;
+    padding: 10px;
+    border-radius: 10px;
+}
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.controls {
+    margin-top: 20px;
+}
+button {
+    padding: 10px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #005f73;
+}
