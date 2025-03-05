@@ -21,37 +21,10 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: 🚀 Subir archivos a `gh-pages`
-        uses: actions/upload-pages-artifact@v2  # Usa la versión actualizada
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: .
+          path: "./dist"  # Asegúrate de que este sea el directorio correcto
 
       - name: 📤 Desplegar en GitHub Pages
-        uses: actions/deploy-pages@v3  # Asegura la versión más reciente
-name: Deploy a GitHub Pages
-
-on:
-  push:
-    branches:
-      - main  # Se ejecutará cuando hagas push en main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🚀 Clonar repositorio
-        uses: actions/checkout@v4
-
-
-      - name: 🚀 Subir archivos a `gh-pages`
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: .
-
-      - name: 📤 Desplegar en GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v3
 
