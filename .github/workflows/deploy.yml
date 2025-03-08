@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:22
     steps:
       - name: 🚀 Clonar repositorio
         uses: actions/checkout@v4
