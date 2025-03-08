@@ -88,7 +88,7 @@ class CuatroEnLinea {
             }
         });
     }
-  
+   
     checkDirection(row: number, col: number, rowDir: number, colDir: number): boolean {
         let count = 1;
         count += this.countInDirection(row, col, rowDir, colDir);
