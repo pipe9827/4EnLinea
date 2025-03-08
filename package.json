@@ -1,0 +1,17 @@
+{
+  "name": "4enlinea",
+  "version": "1.0.0",
+  "description": "Juego basico para comprender principios de CI/CD",
+  "main": "CuatroEnLinea.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+
+}
