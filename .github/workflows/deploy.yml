@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Se ejecutará cuando hagas push en main
+      - main
 
 permissions:
   contents: read
@@ -23,7 +23,7 @@ jobs:
       - name: 📦 Instalar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # Usa la versión que necesites
+          node-version: 18
 
       - name: 📦 Instalar dependencias
         run: npm install
@@ -31,26 +31,30 @@ jobs:
       - name: 📦 Instalar TypeScript
         run: npm install -g typescript
 
-      - name: 📂 Creando archivos generados
-        run: mkdir dist/
-
-      - name: 📂 compilar ts
-        run: npx tsc --build  
-
       - name: 🏗️ Compilar TypeScript
-        run: npm run build  # Asegúrate de que este comando genere la carpeta "dist"
+        run: |
+          npx tsc --build  
+          npm run build
+          ls -la dist/
 
-      - name: 📂 Verificar archivos generados
-        run: ls -l dist/
+      - name: 🔍 Verificar archivos en `dist/`
+        run: |
+          if [ -d "dist" ] && [ "$(ls -A dist)" ]; then
+            echo "✅ Archivos generados en dist/:"
+            ls -la dist/
+          else
+            echo "❌ ERROR: No se encontraron archivos en dist/"
+            exit 1
+          fi
 
       - name: 🚀 Configurar GitHub Pages
         uses: actions/configure-pages@v4
 
       - name: 🚀 Subir archivos a `gh-pages`
+        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # Asegúrate de que este sea el directorio correcto
+          path: ./dist
 
       - name: 📤 Desplegar en GitHub Pages
         uses: actions/deploy-pages@v3
-
